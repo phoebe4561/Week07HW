@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title%}登入成功頁面{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type= "text/css" href="{{url_for('static', filename = 'css/page.css')}}">
+{% endblock %}
+
+{% block header%}
+    <h2>歡迎光臨,這是會員頁</h2>
+{% endblock %}
+
+{% block content%}
+    <p id="showName">{{membername}},歡迎登入系統</p>
+    <div class=link>
+        <a href="/signout">登出</a>
+    </div>   
+
+   <form id="searchForm" action="">
+        <label for="username">查詢會員姓名</label><br>
+        <input type="text" id="username" placeholder="請輸入帳號查詢" required>
+        <button type="submit">查詢</button>
+   </form>
+  
+    <div id="get_result"></div>
+
+    <br>
+    
+    <form id="updateForm" action="">
+        <label for="name">更新我的姓名</label><br>
+        <input type="text" id="name" placeholder="請輸入新的姓名" required>
+        <button type="submit">更新</button>
+    </form>
+
+    <div id="update_result"></div>
+       
+    <hr>
+
+<script src="{{url_for('static', filename = 'js/app.js')}}"></script>
+{% endblock %}
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Phoebe" />
+    <meta name="rating" content="General" />
+    <meta name="robots" content="index,follow" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+   
+  
+    <title>登入成功頁面</title>
+    <link rel="stylesheet" type= "text/css" href="{{url_for('static', filename = 'css/page.css')}}">
+
+</head>
+<body>
+    <header>
+        <h2>歡迎光臨,這是會員頁</h2>
+    </header>
+    <section>
+        <p>{{membername}},歡迎登入系統</p>
+        <a href="/signout">登出</a>
+    </section>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class=flash>
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+
+    <section>
+        <label for="searchname">查詢會員姓名</label><br>
+        <input type="text" id="searchname">
+        <button>查詢</button>
+    </section>
+
+</body>
+<script src="{{url_for('static', filename = 'js/app.js')}}"></script>
+</html> -->
